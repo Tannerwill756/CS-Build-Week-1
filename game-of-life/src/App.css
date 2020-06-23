@@ -1,0 +1,47 @@
+.main {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin: 2% 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid {
+  width: 48%;
+}
+
+.buttons {
+  margin: 1% 0;
+  display: flex;
+  width: 500px;
+  justify-content: space-evenly;
+}
+
+.rules {
+  width: 48%;
+}
+
+.rules h2 {
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.rules li {
+  padding: 2%;
+  margin-left: 5%;
+}
+
+.algo h3 {
+  text-align: center;
+  padding: 1%;
+}
+
+.algo {
+  margin: 2%;
+}
