@@ -29,6 +29,8 @@ const generateEmptyGrid = () => {
   return rows;
 };
 
+let generation = 0;
+
 const App = () => {
   const [grid, setGrid] = useState(() => {
     return generateEmptyGrid();
@@ -48,6 +50,7 @@ const App = () => {
 
     setGrid((g) => {
       return produce(g, (gridCopy) => {
+        generation += 1;
         for (let i = 0; i < numRows; i++) {
           for (let k = 0; k < numCols; k++) {
             let neighbors = 0;
@@ -75,6 +78,7 @@ const App = () => {
   return (
     <div className="main">
       <h1>Conway's Game of Life</h1>
+      <h3>Number of Generation: {generation}</h3>
       <div className="wrapper">
         <div className="grid">
           <div
@@ -140,6 +144,7 @@ const App = () => {
             </button>
             <DropdownButton
               id="dropdown-basic-button"
+              variant="secondary"
               title={bgColor === "Orange" ? "Choose a Color" : bgColor}
             >
               <Dropdown.Item
