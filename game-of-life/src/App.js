@@ -3,7 +3,6 @@ import produce from "immer";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 import "./App.css";
 
 const numRows = 25;
@@ -40,6 +39,11 @@ const App = () => {
 
   const [bgColor, setBgColor] = useState("Orange");
 
+  const [speed, setSpeed] = useState(100);
+
+  const speedRef = useRef(speed);
+  speedRef.current = speed;
+
   const runningRef = useRef(running);
   runningRef.current = running;
 
@@ -72,13 +76,30 @@ const App = () => {
       });
     });
 
-    setTimeout(runSim, 100);
+    setTimeout(runSim, speedRef.current);
   }, []);
 
   return (
     <div className="main">
       <h1>Conway's Game of Life</h1>
       <h3>Number of Generation: {generation}</h3>
+      <h3>Game speed: {speed}ms</h3>
+      <div className="speedButtons">
+        <button
+          onClick={() => {
+            setSpeed(speed - 20);
+          }}
+        >
+          speed up
+        </button>
+        <button
+          onClick={() => {
+            setSpeed(speed + 20);
+          }}
+        >
+          slow down
+        </button>
+      </div>
       <div className="wrapper">
         <div className="grid">
           <div
