@@ -134,6 +134,10 @@ table {
   margin: 1%;
   margin-left: 2%;
 }
+.speedButtons {
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
 
 h1 {
   text-align: center;
